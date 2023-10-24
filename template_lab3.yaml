@@ -1,0 +1,44 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: A Sample template
+Resources:
+    EC2Instance:
+      Type: AWS::EC2::Instance
+      Properties:
+        DisableApiTermination: true
+        ImageId: ami-041feb57c611358bd
+        InstanceType: t2.micro
+        KeyName: vockey
+        SubnetId: subnet-0bb70ae551ea113de
+        SecurityGroupIds: 
+          - !Ref SecurityGroup
+        Tags:
+          - Key: Name
+            Value: Web-Server
+        UserData:
+          Fn::Base64: | 
+            #!/bin/bash
+            dnf install -y httpd
+            systemctl enable httpd
+            systemctl start httpd
+            echo '<html><h1>Hello, my name is Jair and this is my page</h1></html>' > /var/www/html/index.html
+    LaunchTemplate:
+      Type: AWS::EC2::LaunchTemplate
+      Properties:
+        LaunchTemplateData:
+          ImageId: ami-041feb57c611358bd
+          InstanceType: t2.micro
+          KeyName: vockey
+          Monitoring: true
+          SecurityGroupIds:
+            - !Ref SecurityGroup
+    SecurityGroup:
+      Type: AWS::EC2::SecurityGroup
+      Properties:
+        GroupDescription: "Security group for my web server"
+        GroupName: "Web Server security group"
+        SecurityGroupIngress: 
+          - IpProtocol: tcp
+            FromPort: 80
+            ToPort: 80
+            CidrIp: "0.0.0.0/0"
+        VpcId: vpc-038c0ecd4395cb38a
