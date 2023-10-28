@@ -222,6 +222,17 @@ Resources:
         - !Ref PrivateSubnet1
         - !Ref PrivateSubnet2
 
+  #needed for CLI version of the lab
+  IAMUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: awsstudent
+      LoginProfile:
+        Password: !Ref UserPassword
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/ReadOnlyAccess
+        #- !Sub arn:aws:iam::${AWS::AccountId}:policy/IAMPolicy 
+
 Outputs:
   WebServer:
     Value: !GetAtt
