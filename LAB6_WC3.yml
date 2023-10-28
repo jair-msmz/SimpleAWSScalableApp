@@ -225,8 +225,8 @@ Resources:
       Type: AWS::RDS::DBCluster
       Properties:
         Port: 3306
-        DBInstanceClass: db.t3.medium
-        DBIdentifier: lab
+        DBClusterInstanceClass: db.serverless
+        DBClusterIdentifier: lab
         DBSubnetGroupName: !Ref DBsubnetGroup
         Engine: aurora-mysql
         StorageEncrypted: false
