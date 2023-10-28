@@ -224,6 +224,7 @@ Resources:
   DBInstance:
     Type: AWS::RDS::DBInstance
     Properties:
+      AllocatedStorage: 20
       Engine: aurora-mysql
       DBInstanceClass: db.t3.medium
       DBInstanceIdentifier: lab-db
