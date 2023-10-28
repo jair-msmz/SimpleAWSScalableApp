@@ -239,13 +239,13 @@ Resources:
   MyDBInstance:
     Type: AWS::RDS::DBInstance
     Properties:
+      AllocatedStorage: 20
       Engine: mysql
       DBInstanceClass: db.t3.micro
       DBInstanceIdentifier: lab-db
       DBName: jair
       MasterUserPassword: lab-password
       MasterUsername: main
-
 
 Outputs:
   WebServer:
