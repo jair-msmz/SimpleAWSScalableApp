@@ -226,7 +226,7 @@ Resources:
       Properties:
         Port: 3306
         DBInstanceClass: db.t3.medium
-        DBClusterIdentifier: lab
+        DBIdentifier: lab
         DBSubnetGroupName: !Ref DBsubnetGroup
         Engine: aurora-mysql
         StorageEncrypted: false
