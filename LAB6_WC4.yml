@@ -225,7 +225,7 @@ Resources:
       Type: AWS::RDS::DBCluster
       Properties:
         Port: 3306
-        DBInstanceClass: db.t3.medium
+        DBClusterInstanceClass: db.t3.medium
         DBSubnetGroupName: !Ref DBsubnetGroup
         StorageEncrypted: false
         StorageType: Aurora Standard
