@@ -227,7 +227,6 @@ Resources:
         Port: 3306
         DBInstanceClass: db.t3.medium
         DBSubnetGroupName: !Ref DBsubnetGroup
-        Engine: aurora-mysql
         StorageEncrypted: false
         StorageType: Aurora Standard
         DatabaseName: jair
