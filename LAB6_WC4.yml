@@ -220,22 +220,29 @@ Resources:
       SubnetIds:
         - !Ref PrivateSubnet1
         - !Ref PrivateSubnet2
+
+  CreateDBCluster:
+      Type: AWS::RDS::DBCluster
+      Properties:
+        Port: 3306
+        DBClusterIdentifier: lab-db
+        DBSubnetGroupName: !Ref DBsubnetGroup
+        Engine: aurora-mysql
+        StorageEncrypted: false
+        StorageType: aurora
+        DatabaseName: jair
+        MasterUserPassword: lab-password
+        MasterUsername: main
+        VpcSecurityGroupIds: 
+        - !Ref DBSecurityGroup
   
   MyDBInstance:
     Type: AWS::RDS::DBInstance
     Properties:
-      AllocatedStorage: 20
       Engine: mysql
       DBInstanceClass: db.t3.micro
       DBInstanceIdentifier: lab-db
       DBName: lab
-      MasterUsername: main
-      MasterUserPassword: lab-password
-      MultiAZ: true
-      StorageType: gp2
-      StorageEncrypted: false
-      VPCSecurityGroups:
-      - !Ref DBSecurityGroup
 
 
 Outputs:
