@@ -244,7 +244,7 @@ Resources:
       DBInstanceClass: db.t3.micro
       DBInstanceIdentifier: lab-db
       VPCSecurityGroups:
-      - !Ref DBSecurityGroup
+      - !Ref VPC
       DBName: jair
       MasterUserPassword: lab-password
       MasterUsername: main
