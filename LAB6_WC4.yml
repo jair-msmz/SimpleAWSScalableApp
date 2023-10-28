@@ -220,8 +220,8 @@ Resources:
       SubnetIds:
         - !Ref PrivateSubnet1
         - !Ref PrivateSubnet2
-
-  CreateDBInstance:
+  
+  MyDBInstance:
     Type: AWS::RDS::DBInstance
     Properties:
       AllocatedStorage: 20
