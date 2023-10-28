@@ -220,20 +220,23 @@ Resources:
       SubnetIds:
         - !Ref PrivateSubnet1
         - !Ref PrivateSubnet2
-  
-  CreateDBCluster:
-     Type: AWS::RDS::DBCluster
-     Properties:
-      DatabaseName: Jair
-      DBInstanceClass: db.t3.medium
-      DBSubnetGroupName: !Ref DBsubnetGroup
+
+  CreateDBInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      AllocatedStorage: 20
+      Engine: mysql
+      DBInstanceClass: db.t3.micro
+      DBInstanceIdentifier: lab-db
+      DBName: lab
       MasterUsername: main
       MasterUserPassword: lab-password
-      Port: 3306
+      MultiAZ: true
+      StorageType: gp2
       StorageEncrypted: false
-      StorageType: Aurora Standard
-      VpSecurityGroupIds: 
-      - !Ref VPC
+      VPCSecurityGroups:
+      - !Ref DBSecurityGroup
+
 
 Outputs:
   WebServer:
