@@ -221,20 +221,17 @@ Resources:
         - !Ref PrivateSubnet1
         - !Ref PrivateSubnet2
   
-  DBInstance:
-    Type: AWS::RDS::DBInstance
-    Properties:
-      AllocatedStorage: 20
-      Engine: aurora-mysql
-      DBInstanceClass: db.t3.medium
-      DBInstanceIdentifier: lab-db
-      DBName: lab
-      DBSubnetGroupName: !Ref DBsubnetGroup
-      MasterUsername: main
-      MasterUserPassword: lab-password
-      StorageType: Aurora
-      VPCSecurityGroups: 
-        - !Ref DBSecurityGroup
+  CreateDBCluster:
+      Type: AWS::RDS::DBCluster
+      Properties: 
+        Port: 3306
+        DBInstanceClass: db.t3.medium
+        StorageEncrypted: false
+        StorageType: Aurora Standard
+        DatabaseName: Final
+        MasterUserPassword: lab-password
+        MasterUsername: main
+        VpcSecurityGroupIds: !Ref VPC
 
 Outputs:
   WebServer:
