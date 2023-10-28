@@ -3,6 +3,7 @@ Parameters:
   KeyName:
     Type: String
     Description: Keyname for the keypair
+    Default: vockey
 
   AMZN2023LinuxAMIId:
     Type : AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
