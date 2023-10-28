@@ -225,13 +225,14 @@ Resources:
       Type: AWS::RDS::DBCluster
       Properties: 
         Port: 3306
-        DBClusterInstanceClass: db.t3.medium
+        DBClusterInstanceClass: Db.t3.medium
         StorageEncrypted: false
         StorageType: Aurora Standard
         DatabaseName: Final
         MasterUserPassword: lab-password
         MasterUsername: main
-        VpcSecurityGroupIds: !Ref VPC
+        VpcSecurityGroupIds: 
+        - !Ref VPC
 
 Outputs:
   WebServer:
