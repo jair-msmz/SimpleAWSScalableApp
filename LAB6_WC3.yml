@@ -220,6 +220,19 @@ Resources:
       SubnetIds:
         - !Ref PrivateSubnet1
         - !Ref PrivateSubnet2
+  
+  DBInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      Engine: aurora-mysql
+      DBInstanceClass: db.t3.micro
+      DBInstanceIdentifier: lab-db
+      DBName: lab
+      MasterUsername: main
+      MasterUserPassword: lab-password
+      StorageType: gp2
+      VPCSecurityGroups: 
+        - !Ref DBSecurityGroup
 
 Outputs:
   WebServer:
