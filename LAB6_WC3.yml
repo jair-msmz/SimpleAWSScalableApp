@@ -223,17 +223,19 @@ Resources:
   
   CreateDBCluster:
       Type: AWS::RDS::DBCluster
-      Properties: 
+      Properties:
         Port: 3306
         DBClusterInstanceClass: Db.t3.medium
+        DBCClusterIdentifier: lab
+        DBSubnetGroupName: !Ref DBsubnetGroup
         Engine: aurora-mysql
         StorageEncrypted: false
         StorageType: Aurora Standard
-        DatabaseName: Final
+        DatabaseName: jair
         MasterUserPassword: lab-password
         MasterUsername: main
         VpcSecurityGroupIds: 
-        - !Ref WebSecurityGroup
+        - !Ref DBSecurityGroup
 
 Outputs:
   WebServer:
