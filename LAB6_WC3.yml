@@ -222,7 +222,7 @@ Resources:
         - !Ref PrivateSubnet2
   
   DBInstance:
-    Type: AWS::RDS::DBCluster
+    Type: AWS::RDS::DBInstance
     Properties:
       AllocatedStorage: 20
       Engine: aurora-mysql
