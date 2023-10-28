@@ -222,18 +222,18 @@ Resources:
         - !Ref PrivateSubnet2
   
   CreateDBCluster:
-      Type: AWS::RDS::DBCluster
-      Properties:
-        Port: 3306
-        DBClusterInstanceClass: db.t3.medium
-        DBSubnetGroupName: !Ref DBsubnetGroup
-        StorageEncrypted: false
-        StorageType: Aurora Standard
-        DatabaseName: jair
-        MasterUserPassword: lab-password
-        MasterUsername: main
-        VpcSecurityGroupIds: 
-        - !Ref DBSecurityGroup
+     Type: AWS::RDS::DBCluster
+     Properties:
+      DatabaseName: Jair
+      DBInstanceClass: db.t3.medium
+      DBSubnetGroupName: !Ref DBsubnetGroup
+      MasterUsername: main
+      MasterUserPassword: lab-password
+      Port: 3306
+      StorageEncrypted: false
+      StorageType: Aurora Standard
+      VpSecurityGroupIds: 
+      - !Ref VPC
 
 Outputs:
   WebServer:
