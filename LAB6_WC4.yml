@@ -234,7 +234,7 @@ Resources:
         MasterUserPassword: lab-password
         MasterUsername: main
         VpcSecurityGroupIds: 
-        - !Ref WebSecurityGroup
+        - !Ref DBSecurityGroup
   
   MyDBInstance:
     Type: AWS::RDS::DBInstance
@@ -243,8 +243,9 @@ Resources:
       Engine: mysql
       DBInstanceClass: db.t3.micro
       DBInstanceIdentifier: lab-db
+      DBSubnetGroupName: !Ref DBsubnetGroup
       VPCSecurityGroups:
-      - !Ref WebSecurityGroup
+      - !Ref DBSecurityGroup
       DBName: jair
       MasterUserPassword: lab-password
       MasterUsername: main
