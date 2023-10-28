@@ -243,11 +243,11 @@ Resources:
       Engine: mysql
       DBInstanceClass: db.t3.micro
       DBInstanceIdentifier: lab-db
+      DBSecurityGroups:
+      - !Ref DBSecurityGroup
       DBName: jair
       MasterUserPassword: lab-password
       MasterUsername: main
-      VpcSecurityGroups:
-      - !Ref DBSecurityGroup
 
 Outputs:
   WebServer:
