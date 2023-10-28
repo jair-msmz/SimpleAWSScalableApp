@@ -233,6 +233,13 @@ Resources:
         - arn:aws:iam::aws:policy/ReadOnlyAccess
         #- !Sub arn:aws:iam::${AWS::AccountId}:policy/IAMPolicy 
 
+  IAMUserAccessKey:
+    Type: 'AWS::IAM::AccessKey'
+    DependsOn: IAMUser
+    Properties:
+      Status: Active
+      UserName: awsstudent
+
 Outputs:
   WebServer:
     Value: !GetAtt
