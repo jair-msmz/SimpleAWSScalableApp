@@ -222,16 +222,17 @@ Resources:
         - !Ref PrivateSubnet2
   
   DBInstance:
-    Type: AWS::RDS::DBInstance
+    Type: AWS::RDS::DBCluster
     Properties:
       AllocatedStorage: 20
       Engine: aurora-mysql
       DBInstanceClass: db.t3.medium
       DBInstanceIdentifier: lab-db
       DBName: lab
+      DBSubnetGroupName: !Ref DBsubnetGroup
       MasterUsername: main
       MasterUserPassword: lab-password
-      StorageType: Aurora Standard
+      StorageType: Aurora
       VPCSecurityGroups: 
         - !Ref DBSecurityGroup
 
