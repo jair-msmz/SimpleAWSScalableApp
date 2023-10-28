@@ -225,11 +225,11 @@ Resources:
       Type: AWS::RDS::DBCluster
       Properties:
         Port: 3306
-        DBClusterIdentifier: lab
+        DBClusterIdentifier: lab-db
         DBSubnetGroupName: !Ref DBsubnetGroup
         Engine: aurora-mysql
         StorageEncrypted: false
-        StorageType: Aurora Standard
+        StorageType: aurora
         DatabaseName: jair
         MasterUserPassword: lab-password
         MasterUsername: main
