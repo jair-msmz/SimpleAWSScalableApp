@@ -233,7 +233,7 @@ Resources:
         MasterUserPassword: lab-password
         MasterUsername: main
         VpcSecurityGroupIds: 
-        - !Ref DBSecurityGroup
+        - !Ref WebSecurityGroup
 
 Outputs:
   WebServer:
