@@ -226,6 +226,7 @@ Resources:
       Properties: 
         Port: 3306
         DBClusterInstanceClass: Db.t3.medium
+        Engine: aurora-mysql
         StorageEncrypted: false
         StorageType: Aurora Standard
         DatabaseName: Final
