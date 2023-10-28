@@ -246,6 +246,8 @@ Resources:
       DBName: jair
       MasterUserPassword: lab-password
       MasterUsername: main
+      VpcSecurityGroups:
+      - !Ref DBSecurityGroup
 
 Outputs:
   WebServer:
