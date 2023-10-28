@@ -231,7 +231,7 @@ Resources:
       DBName: lab
       MasterUsername: main
       MasterUserPassword: lab-password
-      StorageType: gp2
+      StorageType: AuroraStandard
       VPCSecurityGroups: 
         - !Ref DBSecurityGroup
 
