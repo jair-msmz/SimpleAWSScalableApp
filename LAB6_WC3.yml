@@ -222,52 +222,9 @@ Resources:
         - !Ref PrivateSubnet1
         - !Ref PrivateSubnet2
 
-  #needed for CLI version of the lab
-  IAMUser:
-    Type: 'AWS::IAM::User'
-    Properties:
-      UserName: awsstudent
-      LoginProfile:
-        Password: !Ref UserPassword
-      ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/ReadOnlyAccess
-        #- !Sub arn:aws:iam::${AWS::AccountId}:policy/IAMPolicy 
-
-  IAMUserAccessKey:
-    Type: 'AWS::IAM::AccessKey'
-    DependsOn: IAMUser
-    Properties:
-      Status: Active
-      UserName: awsstudent
-
 Outputs:
   WebServer:
     Value: !GetAtt
       - WebInstance
       - PublicIp
     Description: Public IP address of Web Server
-
-  #needed for CLI version of the lab
-  UserAccessSecretKey:
-    Description: "User access and secret keys."
-    Value: !Join
-      - ''
-      - - "Access Key: "
-        - !Ref IAMUserAccessKey
-        - " "
-        - "Secret Access Key: "
-        - 'Fn::GetAtt':
-          - IAMUserAccessKey
-          - SecretAccessKey
-
-  #needed for CLI version of the lab
-  BastionHost:
-    Description: BastionHost server's public IP address.
-    Value: !GetAtt
-      - BastionHost
-      - PublicIp
-
-  #needed for CLI version of the lab
-  Region:
-    Description: The region for the lab.
-    Value: !Ref "AWS::Region"
