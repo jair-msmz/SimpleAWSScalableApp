@@ -242,7 +242,9 @@ Resources:
       Engine: mysql
       DBInstanceClass: db.t3.micro
       DBInstanceIdentifier: lab-db
-      DBName: lab
+      DBName: jair
+      MasterUserPassword: lab-password
+      MasterUsername: main
 
 
 Outputs:
