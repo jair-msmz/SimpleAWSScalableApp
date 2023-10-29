@@ -230,7 +230,7 @@ Resources:
         Engine: aurora-mysql
         StorageEncrypted: false
         StorageType: aurora
-        DatabaseName: jair
+        DatabaseName: lab
         MasterUserPassword: lab-password
         MasterUsername: main
         VpcSecurityGroupIds: 
@@ -239,14 +239,16 @@ Resources:
   MyDBInstance:
     Type: AWS::RDS::DBInstance
     Properties:
+      AutoMinorVersionUpgrade: false
       AllocatedStorage: 20
       Engine: mysql
       DBInstanceClass: db.t3.micro
       DBInstanceIdentifier: lab-db
       DBSubnetGroupName: !Ref DBsubnetGroup
+      DeleteAutomatedBackups: true
       VPCSecurityGroups:
       - !Ref DBSecurityGroup
-      DBName: jair
+      DBName: lab
       MasterUserPassword: lab-password
       MasterUsername: main
 
