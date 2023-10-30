@@ -257,17 +257,17 @@ Resources:
           Enabled: true
 
   MyAutoScalingGroup:
-  Type: AWS::AutoScaling::AutoScalingGroup
-  Properties:
-    MaxSize: 6
-    MinSize: 2
-    DesiredCapacity: 2
-    LaunchTemplate:
-      LaunchTemplateName: MyLaunchTemplate  
-      Version: 1  
-    VPCZoneIdentifier:
-      - !Ref PublicSubnet1
-      - !Ref PublicSubnet2
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      MaxSize: 6
+      MinSize: 2
+      DesiredCapacity: 2
+      LaunchTemplate:
+        LaunchTemplateName: MyLaunchTemplate  
+        Version: 1  
+      VPCZoneIdentifier:
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
 
 Outputs:
   WebServer:
